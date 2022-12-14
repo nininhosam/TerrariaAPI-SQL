@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Terraria API with SQL</title>
+</head>
+<body>
+    <h1>rotas:</h1>
+    <p> Rota GET => Traz uma lista de todos os itens registrados no banco de dados</p>
+    <p> Rota GET/${item} => Aceita um item registrado e traz apenas a sua arvore de crafting</p>
+    <p> Rota POST/ => Aceita uma JSON com 3 paramêtros: "name", "obtained" e "recipe"(opcional)
+      <br>"name" deverá ser uma string com o nome do objeto
+      <br>"obtained" deverá ser uma string com o método de obtenção
+      <br>"recipe" deverá ser um objeto onde suas chaves são os materiais, e seus valores a quantidade.
+    </p>
+    <p> Rota PUT/${item} => Aceita uma JSON assim como o put, e corrige o item ${item}</p>
+    <p> Rota DELTE/${item} => Deleta um item ${item}</p>
+</body>
+</html>
