@@ -95,7 +95,7 @@ async function addItem(obj) {
   db.query(
     `insert into items (name, obtained) values ('${name}', '${obtained}');`,
     (err) => {
-      if (err) return err
+      if (err) return err;
     }
   );
   return;
@@ -107,9 +107,11 @@ async function addRecipe(obj) {
   for (i = 0; i < keys.length; i++) {
     let material = await getItem(keys[i]);
     db.query(
-      `insert into craftings (result, material, amount) values (${result[0].id}, ${material[0].id}, ${obj.recipe[keys[i]]});`,
+      `insert into craftings (result, material, amount) values (${
+        result[0].id
+      }, ${material[0].id}, ${obj.recipe[keys[i]]});`,
       (err) => {
-        if (err) return err
+        if (err) return err;
       }
     );
   }
@@ -207,13 +209,13 @@ const ItemsController = {
       update items
       set obtained = '${newItem.obtained}'
       where name = '${item[0].name}';`,
-      (err, row) => {
-        if (err)
-          res.status(500).json({
-            error: 'Algo deu errado',
-            message: err,
-          });
-      }
+        (err, row) => {
+          if (err)
+            res.status(500).json({
+              error: 'Algo deu errado',
+              message: err,
+            });
+        }
       );
     }
     if (newItem.name !== undefined) {
@@ -222,13 +224,13 @@ const ItemsController = {
       update items
       set name = '${newItem.name}'
       where name = '${item[0].name}';`,
-      (err, row) => {
-        if (err)
-          res.status(500).json({
-            error: 'Algo deu errado',
-            message: err,
-          });
-      }
+        (err, row) => {
+          if (err)
+            res.status(500).json({
+              error: 'Algo deu errado',
+              message: err,
+            });
+        }
       );
     }
     if (newItem.recipe !== undefined) {
